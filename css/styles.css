@@ -3,9 +3,15 @@
   --title-cl: #212121;
   --alt-text-cl: #ffffff;
   --accent-cl: #2196f3;
-
+  --color-border-header: #ececec;
+  --color-border-portfolio: #eeeeee;
   --dark-bg: #2f303a;
   --second-bg: #f5f4fa;
+  --team-icon-color: #afb1b8;
+  --card-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12),
+    0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+  --bgc-icon-footer: rgba(255, 255, 255, 0.1);
+  --gradient-hero: rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4);
 
   --emblem-font: "Raleway", sans-serif;
   --title-font: "Roboto", sans-serif;
@@ -36,9 +42,19 @@ p {
   align-items: center;
   margin-right: auto;
 }
+.menu-navigation {
+  display: flex;
+  align-items: center;
+}
 .section {
   padding-top: 94px;
   padding-bottom: 94px;
+}
+.section-3 {
+  padding-bottom: 94px;
+}
+.section-footer {
+  padding: 60px;
 }
 .container {
   width: 1200px;
@@ -65,6 +81,15 @@ img {
 .link:hover,
 .link:focus {
   color: var(--accent-cl);
+}
+.font {
+  display: flex;
+  align-items: center;
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.02em;
 }
 .dark-bg {
   background-color: var(--dark-bg);
@@ -119,6 +144,14 @@ img {
   color: var(--alt-text-cl);
   background-color: var(--accent-cl);
 }
+.hero {
+  list-style: none;
+  background-color: var(--dark-bg);
+  background-image: linear-gradient(var(--gradient-hero)),
+    url(../images/proffi-team-min.jpg);
+  padding: 200px;
+  text-align: center;
+}
 .btn-hero {
   display: inline-block;
   min-width: 200px;
@@ -130,13 +163,6 @@ img {
   font-family: inherit;
   font-weight: 700;
 }
-.card-set {
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: -30px;
-  margin-top: -30px;
-}
-
 .visually-hidden {
   position: absolute !important;
   clip: rect(1px 1px 1px 1px);
@@ -153,11 +179,18 @@ img {
   padding-left: 0;
   list-style: none;
 }
+.card-set {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -30px;
+  margin-top: -30px;
+}
 .logo {
   margin-right: 95px;
   display: block;
 }
 .page-heder {
+  border-bottom: 1px solid var(--color-border-header);
   padding-top: 24px;
   padding-bottom: 25px;
 }
@@ -204,7 +237,7 @@ img {
   color: var(--title-cl);
 }
 .title-label {
-  margin-bottom: 10px;
+  margin-top: 10px;
   font-size: 16px;
   line-height: 1.19;
   letter-spacing: 0.03em;
@@ -231,6 +264,7 @@ img {
   color: #ffffff;
 }
 .second-bg {
+  padding-bottom: 94px;
   background-color: var(--second-bg);
 }
 .item {
@@ -238,14 +272,21 @@ img {
   margin-top: 30px;
 }
 .team-item {
-  flex-basis: calc ((100% - 3 * 30px)/3);
+  flex-basis: calc((100% - 3 * 30px) / 3);
 }
 .team-name {
-  flex-basis: calc ((100% - 4 * 30px)/4);
+  flex-basis: calc((100% - 4 * 30px) / 4);
   text-align: center;
+  border-radius: 0px 0px 4px 4px;
+  box-shadow: var(--card-shadow);
+  background-color: var(--alt-text-cl);
+}
+
+.team-description {
+  padding: 30px 32px;
 }
 .portfolio-item {
-  flex-basis: calc ((100% - 3 * 30px)/3);
+  flex-basis: calc((100% - 3 * 30px) / 3);
 }
 .portfolio-btn {
   display: flex;
@@ -256,8 +297,104 @@ img {
 .portfolio-menu-item:not(:last-child) {
   margin-right: 8px;
 }
-.hero {
-  background-color: var(--dark-bg);
-  padding: 200px 0;
-  text-align: center;
+.portfolio-description {
+  padding: 20px 24px;
+  border-right: 1px solid var(--color-border-portfolio);
+  border-left: 1px solid var(--color-border-portfolio);
+  border-bottom: 1px solid var(--color-border-portfolio);
+}
+.icon-contacts {
+  margin-right: 10px;
+  fill: currentColor;
+}
+.social-icons-svg {
+  width: 70px;
+  height: 70px;
+}
+.shell-icon {
+  display: flex;
+  width: 270px;
+  height: 120px;
+  background-color: var(--second-bg);
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.icon-item > .link-team-social {
+  background-color: var(--bgc-icon-footer);
+}
+.team-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 16px;
+}
+.link-team-social {
+  display: flex;
+  height: 44px;
+  width: 44px;
+  border-radius: 50%;
+  color: var(--team-icon-color);
+  justify-content: center;
+  align-items: center;
+}
+.icon-social {
+  fill: currentColor;
+  width: 20px;
+  height: 20px;
+}
+.link-team-social:hover .icon-social,
+.link-team-social:focus .icon-social {
+  fill: var(--alt-text-cl);
+}
+.link-team-social:hover,
+.link-team-social:focus {
+  background-color: var(--accent-cl);
+}
+.clients-list {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  justify-content: center;
+  margin-left: -45px;
+}
+.clients-link {
+  display: flex;
+  width: 170px;
+  height: 90px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--team-icon-color);
+  border-radius: 4px;
+  color: var(--team-icon-color);
+
+  white-space: nowrap;
+  flex-basis: content;
+}
+.clients-logo {
+  fill: currentColor;
+  width: 106px;
+  height: 60px;
+}
+.clients-item + .clients-item {
+  margin-left: 30px;
+}
+.social-text {
+  display: inline-block;
+  margin-bottom: 4px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--alt-text-cl);
+}
+.footer-container {
+  display: flex;
+}
+.footer-social {
+  margin-left: 70px;
+}
+.bgcolor {
+  background-color: var(--bgc-icon-footer);
 }
